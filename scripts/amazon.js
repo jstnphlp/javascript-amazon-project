@@ -1,3 +1,5 @@
+import {cart} from '../data/cart.js';
+
 let productsHTML = '';
 
 products.forEach((product) => {
@@ -71,7 +73,7 @@ document.querySelectorAll('.js-add-to-cart-button').forEach((button) => {
         });
 
         if(matchingItem) {
-            matchingItem.quantity++;
+            matchingItem.quantity += numSelectedQuantity;
         } else {
             cart.push({
             productId,

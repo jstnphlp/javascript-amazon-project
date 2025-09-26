@@ -1,11 +1,14 @@
 import {cart, addToCart, updateCartQuantity} from '../data/cart.js';
-import {products, loadProducts} from '../data/products.js';
+import {products, loadProductsFetch} from '../data/products.js';
 import { formatCurrency } from './utils/money.js';
 
+new Promise(() => {
+  loadProductsFetch().then(() => {
+    renderProductsGrid();
+  });
+});
 
-loadProducts(renderProductsGrid);
 let productsHTML = '';
-
 
 export function renderProductsGrid() {
 refreshCartQuantity(cart);
